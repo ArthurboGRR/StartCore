@@ -30,7 +30,58 @@ notifications
     </header>
 
     <main>
+        <section class="pesquisa">
+    <div class="controlesdepesquisa">
+          <input type="text" id="input-search" placeholder="🔍 Pesquisar por título, conceito ou tag...">
+        <div class="filtros">
+            <select id="filtrodisciplina" aria-label="Filtrar por Disciplina">
+            <option value="">Disciplina ▾</option>
+            <option value="Computabilidade">Computabilidade</option>
+            <option value="Desenvolvimento de Interfaces Web">Des. Interfaces Web</option>
+            <option value="Fundamentos de Engenharia de Software">Fund. Eng. de Software</option>
+            <option value="Introdução á Algoritmos">Int. á Algoritmos</option>
+            <option value="Introdução á Computação">Int. á Computação</option>
+            <option value="Filosofia">Filosofia</option>
+            <option value="Trabalho Interdisciplinar"> T.Interdisciplinar 1</option>
+          </select>
+          
+          <select id="filtrostatus" aria-label="Filtrar por Status">
+            <option value="">Status</option>
+            <option value="A Estudar">A Estudar</option>
+            <option value="Em Andamento">Em Andamento</option>
+            <option value="Concluído">Concluído</option>
+          </select>
 
+          <select id="filtrotipo" aria-label="Filtrar por Tipo">
+            <option value="">Tipo</option>
+            <option value="video">Vídeo</option>
+            <option value="arquivo">Arquivo</option>
+            <option value="pdf">PDF</option>
+          </select>
+
+          <select id="filtrodificuldade" aria-label="Filtrar por Dificuldade">
+            <option value="">Dificuldade</option>
+            <option value="Facil">Fácil</option>
+            <option value="Medio">Médio</option>
+            <option value="Dificil">Difícil</option>
+          </select>
+        </div>
+        </div>
+        
+        <button id="novomaterial"> Novo Material</button>
+</section>
+<section class="containerp">
+    <div class="materiaisdeestudo">
+        <div class="guia">
+            <h1>Materiais de Estudo (3)</h1>
+            <select id="ordenar">
+                <option value="dados">Ordernar por: <strong>Dados</strong></option>
+                <option value="dados">Ordernar por: <strong>Dados</strong></option>
+                <option value="dados">Ordernar por: <strong>Dados</strong></option>
+            </select>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer>
