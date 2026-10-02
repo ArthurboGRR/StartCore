@@ -249,10 +249,108 @@
                         <h3>Checklist de Etapas Concluídas</h3>
                         <input type="checkbox" id="checkbox" name="checkbox">
                         <label for="checkbox">Ler seções 1 e 2 do artigo</label>
+                        <label for="checkbox">Fazer Exercícios</label>
                     </div>
+                    <h2>Minhas Anotações de Estudo:</h2>
+                    <textarea name="Anotacoes" id="Anotacoes" placeholder="Escreva uma reflexão ou resumo..." rows="3"></textarea>
+                    <button type="submit">Salvar Anotação com Data/Hora</button>
+                    <p>Nenhuma anotação registrada ainda.</p>
                 </article>
+                <aside class="slidebar">
+                    <div class="resumo">
+                        <h2>Resumo do Conteúdo</h2>
+                        <p>Artigo conceitual sobre o teorema do valor intermediário e continuidade de funções reais.</p>
+                    </div>
+                    <div class="avaliacaoreal">
+                        <h2>Avaliação do Estudante</h2>
+                        <div class="estrelas">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                    </div>
+                    <p>Clique nas estrelas para avaliar seu entendimento deste conteúdo.</p>
+                    </div>
+                    <div class="metadados">
+                        <h3>Metadados</h3>
+                        <ul>
+                            <li><strong>Data de Cadastro:</strong>01/02/2026</li>
+                            <li><strong>Link Principal:</strong> <a href="#" >Acessar Recurso</a></li>
+                        </ul>
+                    </div>
+                </aside>
             </div>
         </section>
+
+        <div class="cadastrodenovomaterial">
+            <div class="headercad">
+            <h2>Cadastrar Material de Estudo</h2>
+            <button class="sair">X</button>
+        </div>
+        <form action="" id="formcad">
+            <label for="formtitulo">Título do Conteúdo *</label>
+            <input type="text" id="formtitulo" placeholder="Ex: Métodos de Ordenação e Estrutura de Dados" required>
+
+            <div class="formlinhadois">
+                <div class="blocoumlinhadois">
+                <label for="formdisciplina">Disciplina *</label>
+                <select name="formdisciplina" id="formdisciplina" required>
+                    <option value="Computabilidade">Computabilidade</option>
+                    <option value="Desenvolvimento de Interfaces Web">Des. Interfaces Web</option>
+                    <option value="Fundamentos de Engenharia de Software">Fund. Eng. de Software</option>
+                    <option value="Introdução á Algoritmos">Int. á Algoritmos</option>
+                    <option value="Introdução á Computação">Int. á Computação</option>
+                    <option value="Filosofia">Filosofia</option>
+                    <option value="Trabalho Interdisciplinar"> T.Interdisciplinar 1</option>
+                </select></div>
+
+                <div class="blocodoislihadois">
+                    <label for="formtipo">Tipo Prinicipal de Mídia *</label>
+                <select name="formtipo" id="formtipo" required>
+                    <option value="Video">Vídeo</option>
+                    <option value="Artigo">Artigo</option>
+                    <option value="PDF / Livro">PDF / Livro</option>
+                </select>
+                </div>
+            </div>
+
+            <div class="formlinhatres">
+                <div class="blocoumlinhatres">
+                <label for="formdificuldade">Dificuldade *</label>
+                <select name="formdificuldade" id="formdificuldade" required>
+                    <option value="Facil">Fácil</option>
+                    <option value="Medio">Médio</option>
+                    <option value="Dificil">Difícil</option>
+                </select></div>
+
+                <div class="blocodoislihadois">
+                    <label for="formstatus">Status Inicial *</label>
+                <select name="formstatus" id="formstatus" required>
+                    <option value="A estudar">A Estudar</option>
+                    <option value="Em Andamento">Em Andamento</option>
+                    <option value="Concluído">Concluído</option>
+                </select>
+                </div>
+
+                <label for="links">Links Externos (YouTube, Google Drive, Documentação) *</label>
+                <input type="text" required id="link" placeholder="https://...">
+
+                <button>+ Adicionar outro link</button>
+
+                <label>Anexar Arquivos Locais (PDF, Docs, Imagens - Seleção Múltipla)</label>
+                    <input type="file" id="anexo" multiple>
+
+                <label for="resumocad">Resumo / Descrição do Conteúdo *</label>
+                <textarea id="resumocad" rows="3" placeholder="Insira a síntese descritiva deste recurso..."></textarea>
+
+                <div class="buttonsfinais">
+                    <button class="cancelar"> Cancelar</button>
+                    <button class="salvar"> Salvar Material</button>
+                </div>
+            </div>
+        </form>
+        </div>
 </section>
     </main>
 
