@@ -1106,3 +1106,150 @@ header {
     gap: 0.75rem;
     margin-top: 1rem;
 }
+
+/* 12. Mensagens (para futura integração com js)*/
+.mensagem {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    background-color: var(--bg-card-secondary);
+    border: 1px solid var(--border-color);
+    border-left-width: 4px;
+    border-radius: var(--radius-sm);
+}
+ 
+.mensagem-sucesso { color: var(--ok-text); background-color: var(--ok-bg); border-color: var(--ok-border); }
+.mensagem-erro { color: var(--danger-text); background-color: var(--danger-bg); border-color: var(--danger-border); }
+.mensagem-aviso { color: var(--warn-text); background-color: var(--warn-bg); border-color: var(--warn-border); }
+ 
+.vazio {
+    grid-column: 1 / -1;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    color: var(--text-muted);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius);
+}
+ 
+.carregando {
+    opacity: 0.6;
+    pointer-events: none;
+}
+ 
+/* Linha do tempo de anotações (data e hora) */
+.note-entry {
+    padding: 0.85rem;
+    font-size: 0.85rem;
+    background-color: var(--bg-card-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+}
+ 
+.note-timestamp {
+    margin-bottom: 0.25rem;
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: var(--info-text);
+}
+ 
+footer {
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+}
+ 
+ 
+/* 13. Responsividade */
+ 
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+    .containerp {
+        grid-template-columns: 16.25rem minmax(0, 1fr);
+        grid-template-rows: auto 1fr auto auto;
+        grid-template-areas:
+            "progresso guia"
+            "progresso cards"
+            "conceitos conceitos"
+            "rodape    rodape";
+    }
+ 
+    .conceitoslist {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    }
+ 
+    .containerteladois {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+ 
+/* Celulares */
+@media (max-width: 720px) {
+    main {
+        padding: 1rem;
+    }
+ 
+    header {
+        padding: 0.75rem 1rem;
+    }
+ 
+    .ladodireito {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+    }
+ 
+    .pesquisa {
+        flex-direction: column;
+        align-items: stretch;
+    }
+ 
+    .controlesdepesquisa {
+        flex-basis: auto;
+    }
+ 
+    .filtros select {
+        flex: 1 1 8rem;
+    }
+ 
+    #novomaterial {
+        width: 100%;
+    }
+ 
+    .containerp {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "progresso"
+            "guia"
+            "cards"
+            "conceitos"
+            "rodape";
+    }
+ 
+    .formlinhadois,
+    .formlinhatres {
+        grid-template-columns: minmax(0, 1fr);
+    }
+ 
+    .buttonsfinais {
+        flex-direction: column-reverse;
+    }
+ 
+    .buttonsfinais button {
+        width: 100%;
+    }
+}
+ 
+/* Preferência por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
