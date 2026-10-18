@@ -1,363 +1,382 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StartCore</title>
 </head>
+
 <body>
     <header>
         <div class="ladoesquerdo">
-        <p>logo</p>
-    <div class="textoheader">
-        <h1>StartCore</h1>
-        <h3>Engenharia de Software</h3>
-        <p>Guia Interativo do 1° Período</p>
-    </div>
-</div>
+            <span class="logo">logo</span>
+            <hgroup class="textoheader">
+                <h1>StartCore</h1>
+                <p>Engenharia de Software</p>
+                <p>Guia Interativo do 1° Período</p>
+            </hgroup>
+        </div>
 
-<div class="ladodireito">
-    <div class="progressoH">
-        <h2>33% concluído</h2>
-        <p>1/3</p>
-    </div>
-    <button class="modo">Modo</button>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQJRqcbOxHfZFgfKrU4ppQ_J-z0zpJBV4gaplb4OOXQ&s=10" alt="" width="40" >
-</div>
+        <div class="ladodireito">
+            <div class="progressoH">
+                <p><strong>33% concluído</strong></p>
+                <p>1/3</p>
+            </div>
+            <button type="button" class="modo">Modo</button>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQJRqcbOxHfZFgfKrU4ppQ_J-z0zpJBV4gaplb4OOXQ&s=10" alt="" width="40">
+        </div>
     </header>
 
     <main>
-        <section class="pesquisa">
-    <nav class="controlesdepesquisa">
-          <input type="text" id="input-search" placeholder="🔍 Pesquisar por título, conceito ou tag...">
-        <div class="filtros">
-            <select id="filtrodisciplina" aria-label="Filtrar por Disciplina">
-            <option value="">Disciplina ▾</option>
-            <option value="Computabilidade">Computabilidade</option>
-            <option value="Desenvolvimento de Interfaces Web">Des. Interfaces Web</option>
-            <option value="Fundamentos de Engenharia de Software">Fund. Eng. de Software</option>
-            <option value="Introdução á Algoritmos">Int. á Algoritmos</option>
-            <option value="Introdução á Computação">Int. á Computação</option>
-            <option value="Filosofia">Filosofia</option>
-            <option value="Trabalho Interdisciplinar"> T.Interdisciplinar 1</option>
-          </select>
-          
-          <select id="filtrostatus" aria-label="Filtrar por Status">
-            <option value="">Status</option>
-            <option value="A Estudar">A Estudar</option>
-            <option value="Em Andamento">Em Andamento</option>
-            <option value="Concluído">Concluído</option>
-          </select>
+        <div class="pesquisa">
+            <search class="controlesdepesquisa">
+                <form id="form-pesquisa" onsubmit="return false">
+                    <input type="search" id="input-search" name="busca" aria-label="Pesquisar por título, conceito ou tag" placeholder="🔍 Pesquisar por título, conceito ou tag...">
 
-          <select id="filtrotipo" aria-label="Filtrar por Tipo">
-            <option value="">Tipo</option>
-            <option value="video">Vídeo</option>
-            <option value="arquivo">Arquivo</option>
-            <option value="pdf">PDF</option>
-          </select>
-        </div>
-    </nav>
-        
-        <button id="novomaterial"> Novo Material</button>
-</section>
-<section class="containerp">
-    <aside class="progressoP">
-        <h1>Progresso do 1° Período</h1>
-        <div class="roda">
-        <h3>33%</h3>
-        <p>concluído</p>
-        <div class="numprogress">
-            <div class="concluidos">
-                <span>1 Concluído</span>
-            </div>
-            <div class="pendentes">
-                <span>2 Pendentes</span>
-            </div>
-        </div>
-    </div>
-</aside>
-<section class="materiais">
-    <div class="materiaisdeestudo">
-        <div class="guia">
-            <h1>Materiais de Estudo (3)</h1>
-            <select id="ordenar">
-                <option value="data">Ordernar por: <strong>Data de Cadastro</strong></option>
-                <option value="avaliacao">Ordernar por: <strong>Avaliação</strong></option>
-                <option value="titulo">Ordernar por: <strong>Título</strong></option>
-            </select>
-        </div>
-    </div>
-    
-    <div class="cards">
-        <article class="cardone">
-            <div class="headercard">
-                <span class="disciplina">Computabilidade</span>
-                <span class="status">A estudar</span>
-            </div>
-            <div class="maincard">
-                <h2>Lógica Proposicional</h2>
-                <p>Artigo conceitual sobre lógica proposicional e suas variações.</p>
-                <div class="infocards">
-                    <span>Artigo</span>
-                    <span>Difícil</span>
-                    <span>15/03/2026</span>
-                    <span>1 link(s)</span>
-                    <span>1 Arquivo(s)</span>
-                </div>
-            </div>
-            <div class="footercard">
-                <div class="avaliacao">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                </div>
-                <div class="alterar">
-                    <button>Ver/Editar</button>
-                    <button>🗑️ Excluir</button>
-                </div>
-            </div>
-        </article>
+                    <div class="filtros" role="group" aria-label="Filtros">
+                        <select id="filtrodisciplina" name="filtrodisciplina" aria-label="Filtrar por Disciplina">
+                            <option value="">Disciplina ▾</option>
+                            <option value="Computabilidade">Computabilidade</option>
+                            <option value="Desenvolvimento de Interfaces Web">Des. Interfaces Web</option>
+                            <option value="Fundamentos de Engenharia de Software">Fund. Eng. de Software</option>
+                            <option value="Introdução a Algoritmos">Int. a Algoritmos</option>
+                            <option value="Introdução à Computação">Int. à Computação</option>
+                            <option value="Filosofia">Filosofia</option>
+                            <option value="Trabalho Interdisciplinar">T. Interdisciplinar 1</option>
+                        </select>
 
-        <article class="cardtwo">
-            <div class="headercard">
-                <span class="disciplina">Des. Interfaces Web</span>
-                <span class="status">Concluido</span>
-            </div>
-            <div class="maincard">
-                <h2>HTML e CSS</h2>
-                <p>Vídeo explicativo sobre codificação em HTML e CSS.</p>
-                <div class="infocards">
-                    <span>Vídeo</span>
-                    <span>Médio</span>
-                    <span>12/03/2026</span>
-                    <span>2 link(s)</span>
-                    <span>2 Arquivo(s)</span>
-                </div>
-            </div>
-            <div class="footercard">
-                <div class="avaliacao">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                </div>
-                <div class="alterar">
-                    <button>Ver/Editar</button>
-                    <button>🗑️ Excluir</button>
-                </div>
-            </div>
-        </article>
+                        <select id="filtrostatus" name="filtrostatus" aria-label="Filtrar por Status">
+                            <option value="">Status</option>
+                            <option value="A estudar">A Estudar</option>
+                            <option value="Em Andamento">Em Andamento</option>
+                            <option value="Concluído">Concluído</option>
+                        </select>
 
-        <article class="cardthree">
-            <div class="headercard">
-                <span class="disciplina">Filosofia</span>
-                <span class="status">Em Andamento</span>
-            </div>
-            <div class="maincard">
-                <h2>Experiência do Pensar Filosófico</h2>
-                <p>Livro da teoria de Platão.</p>
-                <div class="infocards">
-                    <span>PDF/Livro</span>
-                    <span>Fácil</span>
-                    <span>08/03/2026</span>
-                    <span>1 link(s)</span>
-                    <span>2 Arquivo(s)</span>
-                </div>
-            </div>
-            <div class="footercard">
-                <div class="avaliacao">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                </div>
-                <div class="alterar">
-                    <button>Ver/Editar</button>
-                    <button>🗑️ Excluir</button>
-                </div>
-            </div>
-        </article>
-    </div>
+                        <select id="filtrotipo" name="filtrotipo" aria-label="Filtrar por Tipo">
+                            <option value="">Tipo</option>
+                            <option value="video">Vídeo</option>
+                            <option value="artigo">Artigo</option>
+                            <option value="pdf">PDF / Livro</option>
+                        </select>
+                    </div>
+                </form>
+            </search>
 
-    <aside class="conceitos">
-        <!--Essa parte fiquei em dúvida se colocava ou não por se tratar da api, porém também são apenas exemplos para melhor visualização da premissa do projeto.-->
-        <h2>Conceitos</h2>
-        <div class="conceitoslist">
-            <article class="concept">
-                <h4>Proposição</h4>
-                <p>Uma proposição é um conteúdo de uma asserção ou o significado de uma frase declarativa que pode ser classificado exclusivamente como verdadeiro ou falso.</p>
-                <a href="https://pt.wikipedia.org/wiki/Proposi%C3%A7%C3%A3o">Explorar no wikipédia ></a>
-            </article>
-            <article class="concept">
-                <h4>HTML</h4>
-                <p>HTML (abreviação para a expressão inglesa HyperText Markup Language, que significa: "Linguagem de Marcação de Hipertexto") é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.</p>
-                <a href="https://pt.wikipedia.org/wiki/HTML">Explorar no wikipédia ></a>
-            </article>
+            <button type="button" id="novomaterial" aria-haspopup="dialog">Novo Material</button>
         </div>
-    </aside>
 
-    <div class="footermain">
-        <div class="blocosfooter">
-            <span>🕒</span>
-            <div class="info">
-                <h4>Ultimo acessado</h4>
-                <strong>Lógica Proposicional</strong>
-            </div>
-        </div>
-        <div class="blocosfooter">
-            <span>📅</span>
-            <div class="info">
-                <h4>Próxima Avaliação</h4>
-                <strong>Filosofia — Prova A1 (22/04)</strong>
-            </div>
-        </div>
-        <div class="blocosfooter">
-            <span>📓</span>
-            <div class="info">
-                <h4>Bloco de Anotações</h4>
-                <strong>3 notas registradas nos materiais</strong>
-            </div>
-        </div>
-    </div>
-</section>
+        <div class="containerp">
+            <aside class="progressoP">
+                <h2>Progresso do 1° Período</h2>
+                <div class="roda">
+                    <p><strong>33%</strong></p>
+                    <p>concluído</p>
+                    <div class="numprogress">
+                        <div class="concluidos">
+                            <span>1 Concluído</span>
+                        </div>
+                        <div class="pendentes">
+                            <span>2 Pendentes</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
 
-        <section id="teladois">
-            <button class="voltar">Voltar ao Painel</button>
-            <div class="containerteladois">
-                <article class="details">
-                    <div class="spansinfo">
-                        <span class="list">Computabilidade</span>
-                        <span class="list">Artigo</span>
-                        <span class="list">Difícil</span>
+            <section class="materiais">
+                <div class="materiaisdeestudo">
+                    <div class="guia">
+                        <h2>Materiais de Estudo (3)</h2>
+                        <select id="ordenar" name="ordenar" aria-label="Ordenar materiais">
+                            <option value="data">Ordenar por: Data de Cadastro</option>
+                            <option value="avaliacao">Ordenar por: Avaliação</option>
+                            <option value="titulo">Ordenar por: Título</option>
+                        </select>
                     </div>
-                    <h1>Lógica Proposicional</h1>
-                    <div class="liststatust2">
-                        <span class="status2">A estudar</span>
-                        <span class="status2">Em Andamento</span>
-                        <span class="status2">Concluído</span>
-                    </div>
-                    <div class="tipost2">
-                        <span class="tipot2">Artigo Teórico na Wikipédia</span>
-                        <span class="tipot2">Artigo proposições lógicas</span>
-                    </div>
-                    <a href="https://www.wikipedia.org/">Acessar link externo</a>
-                    <div class="checklist">
-                        <h3>Checklist de Etapas Concluídas</h3>
-                        <input type="checkbox" id="checkbox" name="checkbox">
-                        <label for="checkbox">Ler seções 1 e 2 do artigo</label>
-                        <label for="checkbox">Fazer Exercícios</label>
-                    </div>
-                    <h2>Minhas Anotações de Estudo:</h2>
-                    <textarea name="Anotacoes" id="Anotacoes" placeholder="Escreva uma reflexão ou resumo..." rows="3"></textarea>
-                    <button type="submit">Salvar Anotação com Data/Hora</button>
-                    <p>Nenhuma anotação registrada ainda.</p>
-                </article>
-                <aside class="slidebar">
-                    <div class="resumo">
-                        <h2>Resumo do Conteúdo</h2>
-                        <p>Artigo conceitual sobre o teorema do valor intermediário e continuidade de funções reais.</p>
-                    </div>
-                    <div class="avaliacaoreal">
-                        <h2>Avaliação do Estudante</h2>
-                        <div class="estrelas">
-                        <span>★</span>
-                        <span>★</span>
-                        <span>★</span>
-                        <span>★</span>
-                        <span>★</span>
-                    </div>
-                    <p>Clique nas estrelas para avaliar seu entendimento deste conteúdo.</p>
-                    </div>
-                    <div class="metadados">
-                        <h3>Metadados</h3>
-                        <ul>
-                            <li><strong>Data de Cadastro:</strong>01/02/2026</li>
-                            <li><strong>Link Principal:</strong> <a href="#" >Acessar Recurso</a></li>
-                        </ul>
+                </div>
+
+                <div class="cards">
+                    <article class="cardone">
+                        <div class="headercard">
+                            <span class="disciplina">Computabilidade</span>
+                            <span class="status">A estudar</span>
+                        </div>
+                        <div class="maincard">
+                            <h3>Lógica Proposicional</h3>
+                            <p>Artigo conceitual sobre lógica proposicional e suas variações.</p>
+                            <ul class="infocards">
+                                <li>Artigo</li>
+                                <li>Difícil</li>
+                                <li><time datetime="2026-03-15">15/03/2026</time></li>
+                                <li>1 link(s)</li>
+                                <li>1 Arquivo(s)</li>
+                            </ul>
+                        </div>
+                        <div class="footercard">
+                            <div class="avaliacao" role="img" aria-label="Avaliação: 5 de 5 estrelas">
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                            </div>
+                            <div class="alterar">
+                                <button type="button">Ver/Editar</button>
+                                <button type="button"><span aria-hidden="true">🗑️</span> Excluir</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="cardtwo">
+                        <div class="headercard">
+                            <span class="disciplina">Des. Interfaces Web</span>
+                            <span class="status">Concluído</span>
+                        </div>
+                        <div class="maincard">
+                            <h3>HTML e CSS</h3>
+                            <p>Vídeo explicativo sobre codificação em HTML e CSS.</p>
+                            <ul class="infocards">
+                                <li>Vídeo</li>
+                                <li>Médio</li>
+                                <li><time datetime="2026-03-12">12/03/2026</time></li>
+                                <li>2 link(s)</li>
+                                <li>2 Arquivo(s)</li>
+                            </ul>
+                        </div>
+                        <div class="footercard">
+                            <div class="avaliacao" role="img" aria-label="Avaliação: 5 de 5 estrelas">
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                            </div>
+                            <div class="alterar">
+                                <button type="button">Ver/Editar</button>
+                                <button type="button"><span aria-hidden="true">🗑️</span> Excluir</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="cardthree">
+                        <div class="headercard">
+                            <span class="disciplina">Filosofia</span>
+                            <span class="status">Em Andamento</span>
+                        </div>
+                        <div class="maincard">
+                            <h3>Experiência do Pensar Filosófico</h3>
+                            <p>Livro da teoria de Platão.</p>
+                            <ul class="infocards">
+                                <li>PDF/Livro</li>
+                                <li>Fácil</li>
+                                <li><time datetime="2026-03-08">08/03/2026</time></li>
+                                <li>1 link(s)</li>
+                                <li>2 Arquivo(s)</li>
+                            </ul>
+                        </div>
+                        <div class="footercard">
+                            <div class="avaliacao" role="img" aria-label="Avaliação: 5 de 5 estrelas">
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                            </div>
+                            <div class="alterar">
+                                <button type="button">Ver/Editar</button>
+                                <button type="button"><span aria-hidden="true">🗑️</span> Excluir</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="conceitos">
+                    <!-- Esta parte depende da API, mas foi mantida como exemplo para visualizar a premissa do projeto. -->
+                    <h2>Conceitos</h2>
+                    <div class="conceitoslist">
+                        <article class="concept">
+                            <h3>Proposição</h3>
+                            <p>Uma proposição é um conteúdo de uma asserção ou o significado de uma frase declarativa que pode ser classificado exclusivamente como verdadeiro ou falso.</p>
+                            <a href="https://pt.wikipedia.org/wiki/Proposi%C3%A7%C3%A3o">Explorar na Wikipédia <span aria-hidden="true">&gt;</span></a>
+                        </article>
+                        <article class="concept">
+                            <h3>HTML</h3>
+                            <p>HTML (abreviação para a expressão inglesa HyperText Markup Language, que significa: "Linguagem de Marcação de Hipertexto") é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.</p>
+                            <a href="https://pt.wikipedia.org/wiki/HTML">Explorar na Wikipédia <span aria-hidden="true">&gt;</span></a>
+                        </article>
                     </div>
                 </aside>
-            </div>
-        </section>
 
-        <div class="cadastrodenovomaterial">
-            <div class="headercad">
-            <h2>Cadastrar Material de Estudo</h2>
-            <button class="sair">X</button>
+                <div class="footermain">
+                    <div class="blocosfooter">
+                        <span aria-hidden="true">🕒</span>
+                        <div class="info">
+                            <p>Último acessado</p>
+                            <p><strong>Lógica Proposicional</strong></p>
+                        </div>
+                    </div>
+                    <div class="blocosfooter">
+                        <span aria-hidden="true">📅</span>
+                        <div class="info">
+                            <p>Próxima Avaliação</p>
+                            <p><strong>Filosofia — Prova A1 (22/04)</strong></p>
+                        </div>
+                    </div>
+                    <div class="blocosfooter">
+                        <span aria-hidden="true">📓</span>
+                        <div class="info">
+                            <p>Bloco de Anotações</p>
+                            <p><strong>3 notas registradas nos materiais</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="teladois" aria-labelledby="titulo-detalhe">
+                <button type="button" class="voltar">Voltar ao Painel</button>
+                <div class="containerteladois">
+                    <article class="details">
+                        <div class="spansinfo">
+                            <span class="list">Computabilidade</span>
+                            <span class="list">Artigo</span>
+                            <span class="list">Difícil</span>
+                        </div>
+                        <h2 id="titulo-detalhe">Lógica Proposicional</h2>
+                        <div class="liststatust2">
+                            <span class="status2">A estudar</span>
+                            <span class="status2">Em Andamento</span>
+                            <span class="status2">Concluído</span>
+                        </div>
+                        <div class="tipost2">
+                            <span class="tipot2">Artigo Teórico na Wikipédia</span>
+                            <span class="tipot2">Artigo proposições lógicas</span>
+                        </div>
+                        <a href="https://www.wikipedia.org/">Acessar link externo</a>
+
+                        <div class="checklist">
+                            <h3>Checklist de Etapas Concluídas</h3>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="etapa-1" name="etapa-1">
+                                    <label for="etapa-1">Ler seções 1 e 2 do artigo</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="etapa-2" name="etapa-2">
+                                    <label for="etapa-2">Fazer Exercícios</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h3 id="titulo-anotacoes">Minhas Anotações de Estudo:</h3>
+                        <textarea name="Anotacoes" id="Anotacoes" aria-labelledby="titulo-anotacoes" placeholder="Escreva uma reflexão ou resumo..." rows="3"></textarea>
+                        <button type="button">Salvar Anotação com Data/Hora</button>
+                        <p>Nenhuma anotação registrada ainda.</p>
+                    </article>
+
+                    <aside class="slidebar">
+                        <div class="resumo">
+                            <h3>Resumo do Conteúdo</h3>
+                            <p>Artigo conceitual sobre lógica proposicional e suas variações.</p>
+                        </div>
+                        <div class="avaliacaoreal">
+                            <h3>Avaliação do Estudante</h3>
+                            <div class="estrelas" role="group" aria-label="Avaliação do estudante">
+                                <button type="button" aria-label="1 estrela">★</button>
+                                <button type="button" aria-label="2 estrelas">★</button>
+                                <button type="button" aria-label="3 estrelas">★</button>
+                                <button type="button" aria-label="4 estrelas">★</button>
+                                <button type="button" aria-label="5 estrelas">★</button>
+                            </div>
+                            <p>Clique nas estrelas para avaliar seu entendimento deste conteúdo.</p>
+                        </div>
+                        <div class="metadados">
+                            <h3>Metadados</h3>
+                            <ul>
+                                <li><strong>Data de Cadastro:</strong> <time datetime="2026-03-15">15/03/2026</time></li>
+                                <li><strong>Link Principal:</strong> <a href="#">Acessar Recurso</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </section>
         </div>
-        <form action="" id="formcad">
-            <label for="formtitulo">Título do Conteúdo *</label>
-            <input type="text" id="formtitulo" placeholder="Ex: Métodos de Ordenação e Estrutura de Dados" required>
 
-            <div class="formlinhadois">
-                <div class="blocoumlinhadois">
-                <label for="formdisciplina">Disciplina *</label>
-                <select name="formdisciplina" id="formdisciplina" required>
-                    <option value="Computabilidade">Computabilidade</option>
-                    <option value="Desenvolvimento de Interfaces Web">Des. Interfaces Web</option>
-                    <option value="Fundamentos de Engenharia de Software">Fund. Eng. de Software</option>
-                    <option value="Introdução á Algoritmos">Int. á Algoritmos</option>
-                    <option value="Introdução á Computação">Int. á Computação</option>
-                    <option value="Filosofia">Filosofia</option>
-                    <option value="Trabalho Interdisciplinar"> T.Interdisciplinar 1</option>
-                </select></div>
-
-                <div class="blocodoislihadois">
-                    <label for="formtipo">Tipo Prinicipal de Mídia *</label>
-                <select name="formtipo" id="formtipo" required>
-                    <option value="Video">Vídeo</option>
-                    <option value="Artigo">Artigo</option>
-                    <option value="PDF / Livro">PDF / Livro</option>
-                </select>
-                </div>
+        <dialog class="cadastrodenovomaterial" aria-labelledby="titulo-cadastro">
+            <div class="headercad">
+                <h2 id="titulo-cadastro">Cadastrar Material de Estudo</h2>
+                <button type="button" class="sair" aria-label="Fechar">X</button>
             </div>
 
-            <div class="formlinhatres">
-                <div class="blocoumlinhatres">
-                <label for="formdificuldade">Dificuldade *</label>
-                <select name="formdificuldade" id="formdificuldade" required>
-                    <option value="Facil">Fácil</option>
-                    <option value="Medio">Médio</option>
-                    <option value="Dificil">Difícil</option>
-                </select></div>
+            <form id="formcad">
+                <label for="formtitulo">Título do Conteúdo *</label>
+                <input type="text" id="formtitulo" name="formtitulo" placeholder="Ex: Métodos de Ordenação e Estrutura de Dados" required>
 
-                <div class="blocodoislihadois">
-                    <label for="formstatus">Status Inicial *</label>
-                <select name="formstatus" id="formstatus" required>
-                    <option value="A estudar">A Estudar</option>
-                    <option value="Em Andamento">Em Andamento</option>
-                    <option value="Concluído">Concluído</option>
-                </select>
+                <div class="formlinhadois">
+                    <div class="blocoumlinhadois">
+                        <label for="formdisciplina">Disciplina *</label>
+                        <select name="formdisciplina" id="formdisciplina" required>
+                            <option value="Computabilidade">Computabilidade</option>
+                            <option value="Desenvolvimento de Interfaces Web">Des. Interfaces Web</option>
+                            <option value="Fundamentos de Engenharia de Software">Fund. Eng. de Software</option>
+                            <option value="Introdução a Algoritmos">Int. a Algoritmos</option>
+                            <option value="Introdução à Computação">Int. à Computação</option>
+                            <option value="Filosofia">Filosofia</option>
+                            <option value="Trabalho Interdisciplinar">T. Interdisciplinar 1</option>
+                        </select>
+                    </div>
+
+                    <div class="blocodoislinhadois">
+                        <label for="formtipo">Tipo Principal de Mídia *</label>
+                        <select name="formtipo" id="formtipo" required>
+                            <option value="Video">Vídeo</option>
+                            <option value="Artigo">Artigo</option>
+                            <option value="PDF / Livro">PDF / Livro</option>
+                        </select>
+                    </div>
                 </div>
 
-                <label for="links">Links Externos (YouTube, Google Drive, Documentação) *</label>
-                <input type="text" required id="link" placeholder="https://...">
+                <div class="formlinhatres">
+                    <div class="blocoumlinhatres">
+                        <label for="formdificuldade">Dificuldade *</label>
+                        <select name="formdificuldade" id="formdificuldade" required>
+                            <option value="Facil">Fácil</option>
+                            <option value="Medio">Médio</option>
+                            <option value="Dificil">Difícil</option>
+                        </select>
+                    </div>
 
-                <button>+ Adicionar outro link</button>
+                    <div class="blocodoislinhatres">
+                        <label for="formstatus">Status Inicial *</label>
+                        <select name="formstatus" id="formstatus" required>
+                            <option value="A estudar">A Estudar</option>
+                            <option value="Em Andamento">Em Andamento</option>
+                            <option value="Concluído">Concluído</option>
+                        </select>
+                    </div>
+                </div>
 
-                <label>Anexar Arquivos Locais (PDF, Docs, Imagens - Seleção Múltipla)</label>
-                    <input type="file" id="anexo" multiple>
+                <label for="link">Links Externos (YouTube, Google Drive, Documentação) *</label>
+                <input type="url" id="link" name="link" placeholder="https://..." required>
+
+                <button type="button">+ Adicionar outro link</button>
+
+                <label for="anexo">Anexar Arquivos Locais (PDF, Docs, Imagens - Seleção Múltipla)</label>
+                <input type="file" id="anexo" name="anexo" multiple>
 
                 <label for="resumocad">Resumo / Descrição do Conteúdo *</label>
-                <textarea id="resumocad" rows="3" placeholder="Insira a síntese descritiva deste recurso..."></textarea>
+                <textarea id="resumocad" name="resumocad" rows="3" placeholder="Insira a síntese descritiva deste recurso..." required></textarea>
 
                 <div class="buttonsfinais">
-                    <button class="cancelar"> Cancelar</button>
-                    <button class="salvar"> Salvar Material</button>
+                    <button type="button" class="cancelar">Cancelar</button>
+                    <button type="submit" class="salvar">Salvar Material</button>
                 </div>
-            </div>
-        </form>
-        </div>
-</section>
+            </form>
+        </dialog>
     </main>
 
     <footer>
-        <p>
-            &copy; 2026 StartCore. Todos os direitos reservados.
-        </p>
+        <p>&copy; 2026 StartCore. Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
