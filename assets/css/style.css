@@ -441,3 +441,362 @@ header {
 #novomaterial {
     white-space: nowrap;
 }
+
+/* 6. Layout principal */
+.containerp {
+    display: grid;
+    grid-template-columns: 16.25rem minmax(0, 1fr) 18.75rem;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "progresso guia      conceitos"
+        "progresso cards     conceitos"
+        "rodape    rodape    rodape";
+    gap: 1.25rem;
+    align-items: start;
+}
+ 
+.materiais {
+    display: contents;
+}
+ 
+.progressoP { grid-area: progresso; }
+.materiaisdeestudo { grid-area: guia; }
+.cards { grid-area: cards; }
+.conceitos { grid-area: conceitos; }
+.footermain { grid-area: rodape; }
+ 
+.progressoP,
+.conceitos,
+.details,
+.slidebar > div {
+    padding: 1.1rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+ 
+ 
+/* 7. Progresso do período*/
+.progressoP {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+ 
+.roda {
+    --progresso: 33;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3.75rem 3.75rem auto;
+    justify-items: center;
+}
+ 
+.roda::before {
+    content: "";
+    grid-area: 1 / 1 / 3 / 2;
+    width: 7.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(closest-side, var(--bg-card) 75%, transparent 77%),
+        conic-gradient(var(--ring) calc(var(--progresso) * 1%), var(--bg-card-secondary) 0);
+}
+ 
+.roda > p {
+    grid-column: 1;
+    text-align: center;
+}
+ 
+.roda > p:nth-of-type(1) {
+    grid-row: 1;
+    align-self: end;
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+ 
+.roda > p:nth-of-type(2) {
+    grid-row: 2;
+    align-self: start;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+ 
+.numprogress {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+ 
+.concluidos,
+.pendentes {
+    padding: 0.75rem 0.4rem;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+}
+ 
+.concluidos {
+    color: var(--ok-text);
+    background-color: var(--ok-bg);
+    border: 1px solid var(--ok-border);
+}
+ 
+.pendentes {
+    color: var(--warn-text);
+    background-color: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+}
+ 
+ 
+/* 8. Lista cards*/
+.guia {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+ 
+.guia h2 {
+    font-size: 0.95rem;
+}
+ 
+.guia select {
+    font-size: 0.775rem;
+    padding: 0.4rem 0.7rem;
+}
+ 
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+    gap: 1rem;
+}
+ 
+.cards > article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+    padding: 1.25rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+ 
+.cards > article:hover,
+.cards > article:focus-within {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+ 
+.headercard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+ 
+.disciplina,
+.status {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+ 
+.disciplina {
+    color: var(--info-text);
+    background-color: var(--bg-card-secondary);
+    border-radius: 0.25rem;
+}
+ 
+/* Status: cor por card e por classes modificadoras (uso futuro no JS) */
+.status {
+    padding-inline: 0.65rem;
+    border-radius: 0.75rem;
+}
+ 
+.status,
+.cardthree .status,
+.status-em-andamento {
+    color: var(--info-text);
+    background-color: var(--info-bg);
+}
+ 
+.cardone .status,
+.status-a-estudar {
+    color: var(--warn-text);
+    background-color: var(--warn-bg);
+}
+ 
+.cardtwo .status,
+.status-concluido {
+    color: var(--ok-text);
+    background-color: var(--ok-bg);
+}
+ 
+.maincard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
+}
+ 
+.maincard h3 {
+    font-size: 1.05rem;
+}
+ 
+.maincard p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+ 
+.infocards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+ 
+.infocards li {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    background-color: var(--bg-card-secondary);
+    border-radius: 0.25rem;
+}
+ 
+.footercard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--border-color);
+}
+ 
+.avaliacao {
+    display: flex;
+    gap: 0.1rem;
+    font-size: 0.95rem;
+    color: var(--star);
+}
+ 
+.alterar {
+    display: flex;
+    gap: 0.4rem;
+}
+ 
+.alterar button {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: none;
+    border-color: transparent;
+}
+ 
+.alterar button:hover,
+.alterar button:focus-visible {
+    color: var(--text-main);
+    background-color: var(--bg-card-secondary);
+}
+ 
+/* Ação de exclusão sinalizada em vermelho */
+.alterar button:last-child:hover,
+.alterar button:last-child:focus-visible {
+    color: var(--danger-text);
+    background-color: var(--danger-bg);
+    border-color: var(--danger-border);
+}
+ 
+ 
+/* 9. Conceitos e atalhos */
+.conceitos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+ 
+.conceitoslist {
+    display: grid;
+    gap: 0.85rem;
+}
+ 
+.concept {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.85rem;
+    background-color: var(--bg-card-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+}
+ 
+.concept h3 {
+    font-size: 0.875rem;
+}
+ 
+.concept p {
+    font-size: 0.775rem;
+    color: var(--text-muted);
+}
+ 
+.concept a {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+ 
+.footermain {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
+    gap: 1.25rem;
+}
+ 
+.blocosfooter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    transition: border-color 0.15s;
+}
+ 
+.blocosfooter:hover {
+    border-color: var(--primary);
+}
+ 
+.blocosfooter > span {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 1.2rem;
+    background-color: var(--bg-card-secondary);
+    border-radius: 0.65rem;
+}
+ 
+.info p:first-child {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+ 
+.info strong {
+    font-size: 0.9rem;
+}
+
