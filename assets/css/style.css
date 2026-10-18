@@ -278,3 +278,166 @@ input[type="checkbox"] {
     accent-color: var(--primary);
     cursor: pointer;
 }
+
+/* 4. Cabeçalho */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1.5rem;
+    color: var(--header-text);
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+ 
+.ladoesquerdo,
+.ladodireito {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+ 
+.logo {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: var(--btn-bg);
+    border-radius: var(--radius-sm);
+}
+ 
+.textoheader h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--header-text);
+}
+ 
+/* Selo de versão ao lado do nome */
+.textoheader h1::after {
+    content: "v1.0";
+    padding: 0.1rem 0.4rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #34d399;
+    background-color: var(--header-control);
+    border-radius: 0.25rem;
+}
+ 
+.textoheader p {
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--header-muted);
+}
+ 
+/* Contagem e barra (progresso de 0 a 100) */
+.progressoH {
+    --progresso: 33;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.8rem;
+    color: var(--header-text);
+    background-color: var(--header-control);
+    border: 1px solid var(--header-border);
+    border-radius: 1.25rem;
+}
+ 
+.progressoH p {
+    white-space: nowrap;
+}
+ 
+.progressoH strong {
+    text-transform: uppercase;
+}
+ 
+.progressoH::after {
+    content: "";
+    width: 4.5rem;
+    height: 0.4rem;
+    border-radius: 0.25rem;
+    background: linear-gradient(90deg, #10b981 calc(var(--progresso) * 1%), rgba(255, 255, 255, 0.25) 0);
+}
+ 
+.modo {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
+    color: var(--header-text);
+    background-color: var(--header-control);
+    border-color: var(--header-border);
+}
+ 
+.modo:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--header-text);
+}
+ 
+.ladodireito img {
+    width: 2.25rem;
+    height: 2.25rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+}
+ 
+ 
+/* 5. Pesquisa e filtros*/
+
+.pesquisa {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding: 0.85rem 1.25rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+ 
+.controlesdepesquisa {
+    display: block;
+    flex: 1 1 22rem;
+    min-width: 0;
+}
+ 
+.controlesdepesquisa form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+ 
+#input-search {
+    flex: 1 1 16rem;
+    min-width: 0;
+}
+ 
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+ 
+.filtros select {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.825rem;
+}
+ 
+#novomaterial {
+    white-space: nowrap;
+}
