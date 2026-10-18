@@ -1,0 +1,280 @@
+/* Sumário
+   1. Identidade visual: variáveis, tema claro (padrão) e tema escuro
+   2. Reset, tipografia e estados globais
+   3. Botões e campos
+   4. Cabeçalho (área de navegação)
+   5. Pesquisa e filtros
+   6. Layout principal (Grid)
+   7. Progresso do período
+   8. Listagem: ordenação e cards
+   9. Conceitos e atalhos
+   10. Detalhes do material
+   11. Formulário de cadastro (dialog)
+   12. Mensagens e estados de interação
+   13. Responsividade */
+
+
+/* 1. Identidade visual
+   Tema claro é o padrão. O tema escuro é ativado ao adicionar
+   a classe "dark" no elemento <html> (botão "Modo").*/
+:root {
+    /* Superfícies e texto */
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-card-secondary: #f1f5f9;
+    --border-color: #e2e8f0;
+    --track: #e2e8f0;
+    --text-main: #0f172a;
+    --text-muted: #55657a;
+
+    /* Marca e interação */
+    --primary: #4f46e5;
+    --btn-bg: #4f46e5;
+    --btn-hover: #4338ca;
+    --link: #4338ca;
+    --focus: #4f46e5;
+    --ring: #3b82f6;
+    --star: #f59e0b;
+
+    /* Cabeçalho (escuro nos dois temas) */
+    --header-bg: #0f172a;
+    --header-text: #ffffff;
+    --header-muted: #a8b3c5;
+    --header-control: rgba(255, 255, 255, 0.1);
+    --header-border: rgba(255, 255, 255, 0.18);
+
+    /* Cores (texto, fundo e borda) */
+    --info-text: #1d4ed8;
+    --info-bg: rgba(59, 130, 246, 0.14);
+    --info-border: rgba(59, 130, 246, 0.4);
+    --warn-text: #92400e;
+    --warn-bg: rgba(245, 158, 11, 0.18);
+    --warn-border: rgba(245, 158, 11, 0.5);
+    --ok-text: #065f46;
+    --ok-bg: rgba(16, 185, 129, 0.15);
+    --ok-border: rgba(16, 185, 129, 0.45);
+    --danger-text: #b91c1c;
+    --danger-bg: rgba(239, 68, 68, 0.12);
+    --danger-border: rgba(239, 68, 68, 0.5);
+
+    --shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+
+    --radius-sm: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Tipografia */
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html.dark {
+    --bg-body: #0b0f19;
+    --bg-card: #111827;
+    --bg-card-secondary: #1e293b;
+    --border-color: #1f2937;
+    --track: #1e293b;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+
+    --primary: #6366f1;
+    --link: #a5b4fc;
+    --focus: #a5b4fc;
+
+    --header-bg: #0b0f19;
+
+    --info-text: #60a5fa;
+    --warn-text: #fbbf24;
+    --ok-text: #34d399;
+    --danger-text: #f87171;
+
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+/* 2. Reset, tipografia e global*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    font-size: 100%;
+    color-scheme: light;
+}
+
+html.dark {
+    color-scheme: dark;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    background-color: var(--bg-body);
+    overflow-wrap: anywhere;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 87.5rem;
+    margin-inline: auto;
+    padding: 1.25rem 1.25rem 2rem;
+}
+
+h1, h2, h3 {
+    line-height: 1.25;
+}
+
+h2 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--link);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+::selection {
+    background: var(--btn-bg);
+    color: #ffffff;
+}
+
+
+/* 3. Botões e Campos */
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background-color: var(--bg-card-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+button:hover {
+    border-color: var(--primary);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:disabled,
+button[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#novomaterial,
+.salvar,
+.details > button {
+    color: #ffffff;
+    background-color: var(--btn-bg);
+    border-color: transparent;
+}
+
+#novomaterial:hover,
+.salvar:hover,
+.details > button:hover {
+    background-color: var(--btn-hover);
+    border-color: transparent;
+}
+
+input,
+select,
+textarea {
+    background-color: var(--bg-card-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.55rem 0.8rem;
+    font-size: 0.875rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--primary);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+select {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 5rem;
+}
+
+input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    padding: 0;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
