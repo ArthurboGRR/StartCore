@@ -1,24 +1,4 @@
-/* Sumário
-   1. Identidade visual: variáveis, tema claro (padrão) e tema escuro
-   2. Reset, tipografia e estados globais
-   3. Botões e campos
-   4. Cabeçalho (área de navegação)
-   5. Pesquisa e filtros
-   6. Layout principal (Grid)
-   7. Progresso do período
-   8. Listagem: ordenação e cards
-   9. Conceitos e atalhos
-   10. Detalhes do material
-   11. Formulário de cadastro (dialog)
-   12. Mensagens e estados de interação
-   13. Responsividade */
-
-
-/* 1. Identidade visual
-   Tema claro é o padrão. O tema escuro é ativado ao adicionar
-   a classe "dark" no elemento <html> (botão "Modo").*/
 :root {
-    /* Superfícies e texto */
     --bg-body: #f8fafc;
     --bg-card: #ffffff;
     --bg-card-secondary: #f1f5f9;
@@ -27,7 +7,6 @@
     --text-main: #0f172a;
     --text-muted: #55657a;
 
-    /* Marca e interação */
     --primary: #4f46e5;
     --btn-bg: #4f46e5;
     --btn-hover: #4338ca;
@@ -36,14 +15,12 @@
     --ring: #3b82f6;
     --star: #f59e0b;
 
-    /* Cabeçalho (escuro nos dois temas) */
     --header-bg: #0f172a;
     --header-text: #ffffff;
     --header-muted: #a8b3c5;
     --header-control: rgba(255, 255, 255, 0.1);
     --header-border: rgba(255, 255, 255, 0.18);
 
-    /* Cores (texto, fundo e borda) */
     --info-text: #1d4ed8;
     --info-bg: rgba(59, 130, 246, 0.14);
     --info-border: rgba(59, 130, 246, 0.4);
@@ -62,7 +39,6 @@
     --radius-sm: 0.5rem;
     --radius: 0.75rem;
 
-    /* Tipografia */
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -90,7 +66,6 @@ html.dark {
 }
 
 
-/* 2. Reset, tipografia e global*/
 *,
 *::before,
 *::after {
@@ -179,7 +154,6 @@ img {
 }
 
 
-/* 3. Botões e Campos */
 
 button,
 input,
@@ -279,8 +253,6 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-/* 4. Cabeçalho */
-
 header {
     position: sticky;
     top: 0;
@@ -304,18 +276,24 @@ header {
 }
  
 .logo {
-    display: grid;
-    place-items: center;
+    display: block;
+    flex-shrink: 0;
     width: 2.25rem;
     height: 2.25rem;
-    font-size: 0.6rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #ffffff;
-    background-color: var(--btn-bg);
     border-radius: var(--radius-sm);
 }
- 
+
+.logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.logo:focus-visible {
+    outline-offset: 3px;
+}
+
 .textoheader h1 {
     display: flex;
     align-items: center;
@@ -325,9 +303,7 @@ header {
     color: var(--header-text);
 }
  
-/* Selo de versão ao lado do nome */
-.textoheader h1::after {
-    content: "v1.0";
+.versao {
     padding: 0.1rem 0.4rem;
     font-size: 0.65rem;
     font-weight: 700;
@@ -335,14 +311,13 @@ header {
     background-color: var(--header-control);
     border-radius: 0.25rem;
 }
- 
+
 .textoheader p {
     font-size: 0.75rem;
     line-height: 1.35;
     color: var(--header-muted);
 }
  
-/* Contagem e barra (progresso de 0 a 100) */
 .progressoH {
     --progresso: 33;
     display: flex;
@@ -394,7 +369,6 @@ header {
 }
  
  
-/* 5. Pesquisa e filtros*/
 
 .pesquisa {
     display: flex;
@@ -438,11 +412,19 @@ header {
     font-size: 0.825rem;
 }
  
+#limpar-filtros {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    color: var(--link);
+    background: none;
+    border-style: dashed;
+}
+
 #novomaterial {
     white-space: nowrap;
 }
 
-/* 6. Layout principal */
+
 .containerp {
     display: grid;
     grid-template-columns: 16.25rem minmax(0, 1fr) 18.75rem;
@@ -476,7 +458,6 @@ header {
 }
  
  
-/* 7. Progresso do período*/
 .progressoP {
     display: flex;
     flex-direction: column;
@@ -554,7 +535,6 @@ header {
 }
  
  
-/* 8. Lista cards*/
 .guia {
     display: flex;
     flex-wrap: wrap;
@@ -618,31 +598,26 @@ header {
     border-radius: 0.25rem;
 }
  
-/* Status: cor por card e por classes modificadoras (uso futuro no JS) */
 .status {
     padding-inline: 0.65rem;
     border-radius: 0.75rem;
 }
- 
-.status,
-.cardthree .status,
+
 .status-em-andamento {
     color: var(--info-text);
     background-color: var(--info-bg);
 }
- 
-.cardone .status,
+
 .status-a-estudar {
     color: var(--warn-text);
     background-color: var(--warn-bg);
 }
- 
-.cardtwo .status,
+
 .status-concluido {
     color: var(--ok-text);
     background-color: var(--ok-bg);
 }
- 
+
 .maincard {
     display: flex;
     flex-direction: column;
@@ -711,7 +686,6 @@ header {
     background-color: var(--bg-card-secondary);
 }
  
-/* Ação de exclusão sinalizada em vermelho */
 .alterar button:last-child:hover,
 .alterar button:last-child:focus-visible {
     color: var(--danger-text);
@@ -720,7 +694,6 @@ header {
 }
  
  
-/* 9. Conceitos e atalhos */
 .conceitos {
     display: flex;
     flex-direction: column;
@@ -800,7 +773,64 @@ header {
     font-size: 0.9rem;
 }
 
-/* 10. Detalhes */
+.busca-conceito {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.busca-conceito input {
+    flex: 1;
+    min-width: 0;
+}
+
+.legenda-conceitos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#limpar-conceitos {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    color: var(--link);
+    background: none;
+    border-style: dashed;
+}
+
+.conceitoslist.carregando {
+    opacity: 0.55;
+}
+
+.concept .acoes-conceito {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.concept button {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+}
+
+.concept .origem {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.msg-wikipedia {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--info-text);
+    background-color: var(--info-bg);
+    border: 1px solid var(--info-border);
+    border-radius: var(--radius-sm);
+}
+
 #teladois {
     display: none;
     grid-column: 1 / -1;
@@ -851,6 +881,18 @@ header {
     font-size: 0.9rem;
 }
  
+.acoes-detalhe {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.acoes-detalhe button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+}
+
 .spansinfo,
 .liststatust2,
 .tipost2 {
@@ -924,6 +966,36 @@ header {
     color: var(--text-muted);
 }
  
+
+body:has(#teladois.ativa) .pesquisa {
+    display: none;
+}
+
+.tipot2 {
+    text-decoration: none;
+}
+
+a.tipot2:hover,
+a.tipot2:focus-visible {
+    color: var(--link);
+    text-decoration: underline;
+}
+
+.status2.ativo {
+    color: #ffffff;
+    background-color: var(--btn-bg);
+    border-color: transparent;
+}
+
+#detalhe-anotacoes {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.metadados ul {
+    display: grid;
+}
+
 .slidebar {
     display: flex;
     flex-direction: column;
@@ -970,6 +1042,48 @@ header {
     transform: scale(1.15);
 }
  
+.checklist ul + .linha-link {
+    margin-top: 0.75rem;
+}
+
+.checklist li .remover {
+    margin-left: auto;
+    padding: 0.1rem 0.45rem;
+    font-size: 0.75rem;
+}
+
+.note-entry {
+    position: relative;
+}
+
+.note-entry .remover {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.1rem 0.45rem;
+    font-size: 0.7rem;
+}
+
+.details > textarea {
+    width: 100%;
+}
+
+.estrelas button[aria-pressed="true"] {
+    color: var(--star);
+}
+
+.slidebar .concept h3 {
+    font-size: 0.875rem;
+    text-transform: none;
+    color: var(--text-main);
+}
+
+#detalhe-conceitos,
+#resultado-conceito-detalhe {
+    display: grid;
+    gap: 0.6rem;
+}
+
 .metadados li {
     display: flex;
     flex-wrap: wrap;
@@ -984,7 +1098,6 @@ header {
 }
  
  
-/* 11. Formulário de Cadastro */
 .cadastrodenovomaterial {
     width: min(100% - 2rem, 33.75rem);
     max-height: 90vh;
@@ -1094,7 +1207,6 @@ header {
     border-style: dashed;
 }
  
-/* Validação visual após a interação do usuário */
 #formcad :user-invalid {
     border-color: var(--danger-text);
     box-shadow: 0 0 0 3px var(--danger-bg);
@@ -1107,7 +1219,133 @@ header {
     margin-top: 1rem;
 }
 
-/* 12. Mensagens (para futura integração com js)*/
+.linha-link {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.linha-link input {
+    flex: 1;
+    min-width: 0;
+}
+
+.linha-link + .linha-link,
+#lista-links > * + * {
+    margin-top: 0.5rem;
+}
+
+.remover {
+    flex-shrink: 0;
+    padding: 0.3rem 0.6rem;
+    color: var(--danger-text);
+    background: none;
+    border-color: var(--danger-border);
+}
+
+.remover:hover,
+.remover:focus-visible {
+    background-color: var(--danger-bg);
+}
+
+.dica {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.chips-anexos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.chips-anexos li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.2rem 0.15rem 0.6rem;
+    font-size: 0.775rem;
+    background-color: var(--bg-card-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+}
+
+.chips-anexos button {
+    padding: 0 0.4rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+}
+
+.chips-anexos button:hover,
+.chips-anexos button:focus-visible {
+    color: var(--danger-text);
+}
+
+.erro-campo {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--danger-text);
+}
+
+[aria-invalid="true"] {
+    border-color: var(--danger-text);
+    box-shadow: 0 0 0 3px var(--danger-bg);
+}
+
+
+.confirmacao {
+    width: min(100% - 2rem, 26rem);
+    margin: auto;
+    padding: 1.5rem;
+    color: var(--text-main);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.confirmacao::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.confirmacao h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--text-main);
+}
+
+.confirmacao p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.perigo {
+    color: var(--danger-text);
+    border-color: var(--danger-border);
+}
+
+.perigo:hover,
+.perigo:focus-visible {
+    background-color: var(--danger-bg);
+    border-color: var(--danger-text);
+}
+
+#confirmar-exclusao-botao {
+    color: #ffffff;
+    background-color: #b91c1c;
+    border-color: transparent;
+}
+
+#confirmar-exclusao-botao:hover,
+#confirmar-exclusao-botao:focus-visible {
+    background-color: #991b1b;
+}
+
 .mensagem {
     display: flex;
     align-items: center;
@@ -1124,6 +1362,42 @@ header {
 .mensagem-erro { color: var(--danger-text); background-color: var(--danger-bg); border-color: var(--danger-border); }
 .mensagem-aviso { color: var(--warn-text); background-color: var(--warn-bg); border-color: var(--warn-border); }
  
+.toasts {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1200;
+    display: grid;
+    gap: 0.5rem;
+    width: min(26rem, calc(100vw - 2rem));
+}
+
+.toasts .mensagem {
+    justify-content: space-between;
+    background-color: var(--bg-card);
+    box-shadow: var(--shadow);
+}
+
+.toasts .mensagem-sucesso { background-color: var(--bg-card); border-color: var(--ok-border); border-left-color: var(--ok-text); }
+.toasts .mensagem-erro { background-color: var(--bg-card); border-color: var(--danger-border); border-left-color: var(--danger-text); }
+.toasts .mensagem-aviso { background-color: var(--bg-card); border-color: var(--warn-border); border-left-color: var(--warn-text); }
+
+.toasts .mensagem button {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    color: var(--link);
+    background: none;
+}
+
+.destaque {
+    animation: destaque 1.8s ease-out;
+}
+
+@keyframes destaque {
+    from { box-shadow: 0 0 0 3px var(--primary), var(--shadow); }
+    to { box-shadow: 0 0 0 0 transparent; }
+}
+
 .vazio {
     grid-column: 1 / -1;
     padding: 2.5rem 1rem;
@@ -1133,12 +1407,27 @@ header {
     border-radius: var(--radius);
 }
  
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.vazio button {
+    margin-top: 0.75rem;
+}
+
 .carregando {
     opacity: 0.6;
     pointer-events: none;
 }
  
-/* Linha do tempo de anotações (data e hora) */
 .note-entry {
     padding: 0.85rem;
     font-size: 0.85rem;
@@ -1163,9 +1452,7 @@ footer {
 }
  
  
-/* 13. Responsividade */
  
-/* Tablets e telas médias */
 @media (max-width: 1024px) {
     .containerp {
         grid-template-columns: 16.25rem minmax(0, 1fr);
@@ -1186,7 +1473,6 @@ footer {
     }
 }
  
-/* Celulares */
 @media (max-width: 720px) {
     main {
         padding: 1rem;
@@ -1244,7 +1530,6 @@ footer {
     }
 }
  
-/* Preferência por menos movimento */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
